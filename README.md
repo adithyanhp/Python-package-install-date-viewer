@@ -89,7 +89,7 @@ PyPackageManagerPro/
 
 ![Main Window](screenshots/main-window.png)
 
----
+
 ---
 
 ## 🚀 Getting Started (run from source)
