@@ -27,7 +27,7 @@ if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
 
 echo [4/4] Building executable with PyInstaller...
-pyinstaller build.spec
+python -m PyInstaller build.spec
 if errorlevel 1 (
     echo ERROR: PyInstaller build failed.
     exit /b 1

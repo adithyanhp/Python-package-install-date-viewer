@@ -27,7 +27,7 @@ try {
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue dist
 
     Write-Step "Building executable with PyInstaller..."
-    pyinstaller build.spec
+    python -m PyInstaller build.spec
 
     Write-Step "Build complete!"
     Write-Host "Executable: dist\PyPackageManagerPro\PyPackageManagerPro.exe" -ForegroundColor Green
