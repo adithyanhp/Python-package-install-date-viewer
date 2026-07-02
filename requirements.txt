@@ -1,0 +1,12 @@
+# PyPackage Manager Pro - Runtime dependencies
+#
+# Core GUI
+customtkinter>=5.2.2
+
+# Optional export formats (app degrades gracefully if these are missing,
+# but they are required for the Export -> Excel / Export -> PDF buttons)
+openpyxl>=3.1.2
+reportlab>=4.1.0
+
+# Packaging (only needed to build the .exe, not to run from source)
+pyinstaller>=6.6.0

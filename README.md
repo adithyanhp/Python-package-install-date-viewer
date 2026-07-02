@@ -1,0 +1,165 @@
+# 🐍 PyPackage Manager Pro
+
+**A modern, dark-violet desktop GUI for managing Python packages across every interpreter installed on your Windows machine.**
+
+Built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — no more juggling `pip list`, `pip install`, and `pip uninstall` across five different Python versions from the terminal.
+
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Platform](https://img.shields.io/badge/platform-Windows%2011-informational)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-1.0.2-8B5CF6)
+
+---
+
+## ✨ Features
+
+- 🐍 **Auto-detects every installed Python interpreter** — Windows Registry, `py` launcher, PATH, virtual environments, and Conda/Miniconda environments
+- 📦 **Lists all installed packages** per interpreter with version, size, summary, author, and homepage
+- 🔍 **Search packages** by name or description in real time
+- 📅 **Sort** by name, version, or size (ascending/descending)
+- 🖥️ **Modern dark-violet GUI** built with CustomTkinter, styled like VS Code / PyCharm
+- ⬆️ **Detect & install updates** — flags outdated packages and upgrades them with one click
+- 🗑️ **Uninstall packages** with a single click (safe, non-interactive `pip uninstall -y`)
+- ➕ **Install new packages** directly from the toolbar (supports version specifiers, e.g. `requests==2.31.0`)
+- 🔄 **Refresh** the package list without restarting the app
+- 📄 **Export to CSV, Excel (.xlsx), or PDF** — great for audits, documentation, or sharing environment snapshots
+- 🧵 **Fully responsive UI** — every pip/scan operation runs on a background thread pool, so the interface never freezes
+- 📝 **Rotating log files** for troubleshooting
+
+---
+
+## 📸 Overview
+
+| Area | What it does |
+|---|---|
+| **Sidebar (left)** | Shows every detected Python interpreter as a card. Click one to load its packages. |
+| **Toolbar (top)** | Search box, sort dropdown, install field, export menu, and refresh button. |
+| **Package table (center)** | Every installed package with version, latest version, size, summary, and Upgrade/Remove actions. |
+| **Status bar (bottom)** | Live feedback on scans, installs, uninstalls, and exports. |
+
+---
+
+## 🗂️ Project Structure
+
+```text
+PyPackageManagerPro/
+├── main.py                     # Application entry point
+│
+├── core/                       # Business logic (no GUI dependencies)
+│   ├── __init__.py
+│   ├── models.py                # Dataclasses: PythonInterpreter, PackageInfo, OperationResult
+│   ├── python_detector.py       # Detects interpreters (Registry, py launcher, PATH, venv, conda)
+│   ├── package_scanner.py       # Lists installed packages per interpreter via importlib.metadata
+│   ├── package_manager.py       # pip install / uninstall / upgrade (safe subprocess handling)
+│   └── exporter.py              # CSV / Excel / PDF export
+│
+├── gui/                        # CustomTkinter presentation layer
+│   ├── __init__.py
+│   ├── app.py                   # Main window - wires sidebar, toolbar, table together
+│   ├── sidebar.py                # Interpreter list (left panel)
+│   ├── toolbar.py                # Search, sort, install, export, refresh controls
+│   ├── package_table.py          # Scrollable package list with Upgrade/Remove actions
+│   └── theme.py                  # Dark-violet color palette + CustomTkinter theme JSON writer
+│
+├── utils/                      # Cross-cutting helpers
+│   ├── __init__.py
+│   ├── logger.py                 # Rotating file + console logging setup
+│   └── threading_utils.py        # BackgroundTaskRunner - keeps pip/scan work off the UI thread
+│
+├── assets/
+│   ├── icons/
+│   │   ├── app.ico               # Windows executable icon
+│   │   └── app.png
+│   └── themes/                   # Generated CustomTkinter theme JSON (created at runtime)
+│
+├── exports/                    # Default folder for CSV / Excel / PDF exports
+├── logs/                       # Rotating application log files
+│
+├── build.spec                  # PyInstaller spec (windowed, single folder)
+├── build.bat                   # Windows CMD build script
+├── build.ps1                   # Windows PowerShell build script
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started (run from source)
+
+**Requirements:** Windows 10/11, Python 3.10+
+
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+pip install -r requirements.txt
+python main.py
+```
+
+---
+
+## 🏗️ Building a standalone .exe
+
+PyPackage Manager Pro ships with a PyInstaller spec and two build scripts.
+
+**Using PowerShell (recommended):**
+
+```powershell
+.\build.ps1
+```
+
+**Using Command Prompt:**
+
+```cmd
+build.bat
+```
+
+Both scripts will:
+1. Verify Python is installed
+2. Install/upgrade dependencies from `requirements.txt`
+3. Clean any previous `build/`/`dist/` folders
+4. Run PyInstaller using `build.spec`
+
+The final executable will be at:
+
+```
+dist\PyPackageManagerPro\PyPackageManagerPro.exe
+```
+
+---
+
+## 🧩 How interpreter detection works
+
+`core/python_detector.py` runs five independent strategies and de-duplicates the results by resolved executable path:
+
+1. **Windows Registry** — reads `HKCU`/`HKLM` → `SOFTWARE\Python\PythonCore` (and the WOW6432Node equivalent for 32-bit installs)
+2. **`py` launcher** — parses `py -0p` output
+3. **PATH** — scans every directory on `PATH` for `python.exe`
+4. **Virtual environments** — looks for `pyvenv.cfg` in common project folders
+5. **Conda/Miniconda** — parses `conda env list`
+
+Each candidate interpreter is "probed" by briefly running it with `-c` to confirm its version and architecture before being added to the list, so stale registry entries never show up as usable interpreters.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Python 3.10+**
+- **[CustomTkinter](https://github.com/TomSchimansky/CustomTkinter)** — modern GUI widgets
+- **importlib.metadata** — package introspection
+- **subprocess + ThreadPoolExecutor** — safe, non-blocking pip operations
+- **openpyxl** — Excel export
+- **reportlab** — PDF export
+- **PyInstaller** — standalone Windows executable packaging
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙋 Contributing
+
+Issues and pull requests are welcome. If you find an interpreter that isn't being detected correctly on your machine, please open an issue with your Python install method (python.org installer, Microsoft Store, Conda, etc.) so detection can be improved.

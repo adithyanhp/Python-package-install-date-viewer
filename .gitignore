@@ -1,0 +1,35 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build artifacts
+build/
+dist/
+*.spec.bak
+*.egg-info/
+
+# PyInstaller
+*.manifest
+
+# Logs (keep the folder, ignore the contents)
+logs/*.log
+logs/*.log.*
+
+# Exports (keep the folder, ignore generated files)
+exports/*.csv
+exports/*.xlsx
+exports/*.pdf
+
+# Environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
