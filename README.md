@@ -163,7 +163,7 @@ Each candidate interpreter is "probed" by briefly running it with `-c` to confir
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the GNU General Public License v2.0 (GPL-2.0). See the LICENSE file for details.
 
 ---
 
