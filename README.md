@@ -161,6 +161,20 @@ Each candidate interpreter is "probed" by briefly running it with `-c` to confir
 
 ---
 
+## 🚀 Future Features
+
+- Export to Excel (.xlsx)
+- Export to PDF
+- Package uninstall
+- Detect multiple Python installations
+- Display package size
+- Dark/Light mode
+- Automatic update checker
+- Package dependency viewer
+- Package information panel
+- Package update checker
+---
+
 ## 📄 License
 
 This project is licensed under the GNU General Public License v2.0 (GPL-2.0). See the LICENSE file for details.
