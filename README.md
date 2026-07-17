@@ -10,6 +10,13 @@ Built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — n
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Version](https://img.shields.io/badge/version-1.0.2-8B5CF6)
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+
+![Platform](https://img.shields.io/badge/Platform-Windows-success)
+
+![License](https://img.shields.io/badge/License-GPL--2.0-red)
+
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ---
 
 ## ✨ Features
