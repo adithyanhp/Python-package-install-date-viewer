@@ -1,3 +1,4 @@
+![Version](https://img.shields.io/badge/version-v1.0.2-blue)
 # 🐍 PyPackage Manager Pro
 
 **A modern, dark-violet desktop GUI for managing Python packages across every interpreter installed on your Windows machine.**
