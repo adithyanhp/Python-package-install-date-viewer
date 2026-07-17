@@ -48,45 +48,57 @@ Built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — n
 ## 🗂️ Project Structure
 
 ```text
-PyPackageManagerPro/
-├── main.py                     # Application entry point
-│
-├── core/                       # Business logic (no GUI dependencies)
-│   ├── __init__.py
-│   ├── models.py                # Dataclasses: PythonInterpreter, PackageInfo, OperationResult
-│   ├── python_detector.py       # Detects interpreters (Registry, py launcher, PATH, venv, conda)
-│   ├── package_scanner.py       # Lists installed packages per interpreter via importlib.metadata
-│   ├── package_manager.py       # pip install / uninstall / upgrade (safe subprocess handling)
-│   └── exporter.py              # CSV / Excel / PDF export
-│
-├── gui/                        # CustomTkinter presentation layer
-│   ├── __init__.py
-│   ├── app.py                   # Main window - wires sidebar, toolbar, table together
-│   ├── sidebar.py                # Interpreter list (left panel)
-│   ├── toolbar.py                # Search, sort, install, export, refresh controls
-│   ├── package_table.py          # Scrollable package list with Upgrade/Remove actions
-│   └── theme.py                  # Dark-violet color palette + CustomTkinter theme JSON writer
-│
-├── utils/                      # Cross-cutting helpers
-│   ├── __init__.py
-│   ├── logger.py                 # Rotating file + console logging setup
-│   └── threading_utils.py        # BackgroundTaskRunner - keeps pip/scan work off the UI thread
-│
+```
+Python-package-install-date-viewer/
+├── .github/
+│   └── ISSUE_TEMPLATE/
+│       ├── bug_report.md
+│       ├── config.yml
+│       └── feature_request.md
+├── .gitignore
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
 ├── assets/
 │   ├── icons/
-│   │   ├── app.ico               # Windows executable icon
+│   │   ├── app.ico
 │   │   └── app.png
-│   └── themes/                   # Generated CustomTkinter theme JSON (created at runtime)
-│
-├── exports/                    # Default folder for CSV / Excel / PDF exports
-├── logs/                       # Rotating application log files
-│
-├── build.spec                  # PyInstaller spec (windowed, single folder)
-├── build.bat                   # Windows CMD build script
-├── build.ps1                   # Windows PowerShell build script
+│   └── themes/
+│       └── .gitkeep
+├── build.bat
+├── build.ps1
+├── build.spec
+├── core/
+│   ├── __init__.py
+│   ├── exporter.py
+│   ├── models.py
+│   ├── package_manager.py
+│   ├── package_scanner.py
+│   └── python_detector.py
+├── docs/
+│   └── PyPackage_Manager_Pro_Project_Report.docx
+├── exports/
+│   └── .gitkeep
+├── gui/
+│   ├── __init__.py
+│   ├── app.py
+│   ├── package_table.py
+│   ├── sidebar.py
+│   ├── theme.py
+│   └── toolbar.py
+├── logs/
+│   └── .gitkeep
+├── main.py
 ├── requirements.txt
-├── LICENSE
-└── README.md
+├── screenshots/
+│   └── main-window.png
+└── utils/
+    ├── __init__.py
+    ├── logger.py
+    └── threading_utils.py
+
+```
 ```
 
 ## Screenshots
