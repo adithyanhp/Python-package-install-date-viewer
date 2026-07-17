@@ -47,8 +47,9 @@ Built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — n
 
 ## 🗂️ Project Structure
 
+# Project Structure
+
 ```text
-```
 Python-package-install-date-viewer/
 ├── .github/
 │   └── ISSUE_TEMPLATE/
@@ -97,8 +98,6 @@ Python-package-install-date-viewer/
     ├── __init__.py
     ├── logger.py
     └── threading_utils.py
-
-```
 ```
 
 ## Screenshots
