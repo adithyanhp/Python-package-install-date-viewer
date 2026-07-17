@@ -7,9 +7,6 @@ Built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — n
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows%2011-informational)
 ![Version](https://img.shields.io/badge/version-1.0.2-8B5CF6)
-
-![Platform](https://img.shields.io/badge/Platform-Windows-success)
-
 ![License](https://img.shields.io/badge/License-GPL--2.0-red)
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
