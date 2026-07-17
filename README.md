@@ -1,4 +1,3 @@
-![Version](https://img.shields.io/badge/version-v1.0.2-blue)
 # 🐍 PyPackage Manager Pro
 
 **A modern, dark-violet desktop GUI for managing Python packages across every interpreter installed on your Windows machine.**
@@ -7,7 +6,7 @@ Built with [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — n
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows%2011-informational)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-GPL-V2-green)
 ![Version](https://img.shields.io/badge/version-1.0.2-8B5CF6)
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
